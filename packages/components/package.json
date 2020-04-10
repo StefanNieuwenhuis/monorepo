@@ -16,13 +16,14 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "start": "yarn start.stencil & yarn start.storybook",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "storybook": "start-storybook --node-resolve --watch --open --preserve-symlinks",
-    "storybook:build": "build-storybook",
-    "build.json": "wca analyze \"src/**/*.ts\" --outFile .storybook/custom-elements.json"
+    "analyze": "wca analyze \"src/**/*.ts\" --outFile .storybook/custom-elements.json",
+    "start.stencil": "stencil build --watch",
+    "start.storybook": "start-storybook --node-resolve --watch --open --port 1337",
+    "storybook.build": "yarn build.json && build-storybook"
   },
   "devDependencies": {
     "@open-wc/demoing-storybook": "^1.15.2",
