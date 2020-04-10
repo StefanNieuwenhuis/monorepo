@@ -16,13 +16,21 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "start": "yarn start.stencil & yarn start.storybook",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "analyze": "wca analyze \"src/**/*.ts\" --outFile .storybook/custom-elements.json",
+    "start.stencil": "stencil build --watch",
+    "start.storybook": "start-storybook --node-resolve --watch --open --port 1337",
+    "storybook.build": "yarn build.json && build-storybook"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.2"
+    "@open-wc/demoing-storybook": "^1.15.2",
+    "@stencil/core": "^1.12.2",
+    "lit-html": "^1.2.1",
+    "web-component-analyzer": "^1.0.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }
