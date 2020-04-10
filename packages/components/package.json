@@ -19,10 +19,18 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "storybook": "start-storybook --node-resolve --watch --open --preserve-symlinks",
+    "storybook:build": "build-storybook",
+    "build.json": "wca analyze \"src/**/*.ts\" --outFile .storybook/custom-elements.json"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.2"
+    "@stencil/core": "^1.12.2",
+    "lit-html": "^1.2.1",
+    "web-component-analyzer": "^1.0.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@open-wc/demoing-storybook": "^1.15.2"
+  }
 }

@@ -1,0 +1,24 @@
+import { Story, Preview, Meta, Props, withKnobs, withWebComponentsKnobs, text } from '@open-wc/demoing-storybook';
+import { html } from 'lit-html';
+
+<Meta
+    title="My Component"
+    decorators={[withKnobs, withWebComponentsKnobs]}
+    parameters={{ component: 'my-component', options: { selectedPanel: 'storybookjs/knobs/panel' } }}
+/>
+
+export let first = text('First name', 'Stefan');
+
+<Preview>
+<Story name="Simple" height="220px">
+    {html`
+      <my-component .first=${text('First name', 'Stefan')} .middle=${text('Middle name')} .last=${text('Last name', 'Nieuwenhuis')}></my-component>
+    `}
+  </Story>
+</Preview>
+
+## API
+
+The api table will show the data of "my-components" in your `custom-elements.json`.
+
+<Props of="my-component" />
